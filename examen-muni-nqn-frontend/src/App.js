@@ -1,4 +1,3 @@
-import "./App.css";
 import Rutas from "./routes/routes";
 
 function App() {

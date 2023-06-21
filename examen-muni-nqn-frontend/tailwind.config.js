@@ -4,7 +4,11 @@ module.exports = {
   important: "#root",
   darkMode: "class",
   theme: {
-    extend: {},
+    extend: {
+      gridTemplateRows: {
+        3: "64px 1fr 181px ",
+      },
+    },
   },
   plugins: [],
 };

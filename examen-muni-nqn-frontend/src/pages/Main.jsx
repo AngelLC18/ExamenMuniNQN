@@ -1,5 +1,4 @@
 import { useState } from "react";
-import NavBar from "../components/navbar/NavBar";
 import Footer from "../components/footer/Footer";
 import { Drawer, Box, Typography, IconButton, Grid } from "@mui/material";
 import PeopleIcon from "@mui/icons-material/People";
@@ -14,8 +13,8 @@ const Main = () => {
         <Grid item xs={12}>
           <ResponsiveAppBar />
         </Grid>
-        <Grid item xs={12}>
-          <main className="w-full h-screen flex justify-center">
+        <Grid item xs={12} className="w-full h-screen flex justify-center">
+          <Box className=" flex items-center">
             <IconButton
               edge="start"
               color="inherit"
@@ -23,28 +22,27 @@ const Main = () => {
             >
               <PeopleIcon />
             </IconButton>
-            <Drawer
-              anchor="left"
-              open={isDrawerOpen}
-              onClose={() => setIsDrawerOpen(false)}
+          </Box>
+          <Drawer
+            anchor="left"
+            open={isDrawerOpen}
+            onClose={() => setIsDrawerOpen(false)}
+          >
+            <Box
+              textAlign="center"
+              role="presentation"
+              className="dark:bg-slate-900 w-2/3"
             >
-              <Box
-                width="720px"
-                textAlign="center"
-                role="presentation"
-                className="dark:bg-slate-900"
+              <Typography
+                variant="h6"
+                component="div"
+                className="dark:text-white"
               >
-                <Typography
-                  variant="h6"
-                  component="div"
-                  className="dark:text-white"
-                >
-                  Lista Personas
-                </Typography>
-                <Muni />
-              </Box>
-            </Drawer>
-          </main>
+                Lista Personas
+              </Typography>
+              <Muni />
+            </Box>
+          </Drawer>
         </Grid>
         <Grid item xs={12}>
           <Footer />

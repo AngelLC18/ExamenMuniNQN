@@ -9,11 +9,9 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
+import CodeIcon from "@mui/icons-material/Code";
 import DarkMode from "../dark-mode/DarkMode";
-
-const pages = ["Home", "Campus", "Personas"];
-
+import { Link } from "react-router-dom";
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
@@ -26,10 +24,10 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="fixed" className="bg-sky-300 dark:bg-slate-800">
+    <AppBar position="static" className="bg-sky-300 dark:bg-slate-800">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
+          <CodeIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
           <Typography
             variant="h6"
             noWrap
@@ -77,14 +75,21 @@ function ResponsiveAppBar() {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
+              <MenuItem onClick={handleCloseNavMenu}>
+                <Link to="/" className="text-black dark:text-white">
+                  {" "}
+                  Home{" "}
+                </Link>
+              </MenuItem>
+              <MenuItem onClick={handleCloseNavMenu}>
+                <Link to="/campus" className="text-black dark:text-white">
+                  {" "}
+                  Campus{" "}
+                </Link>
+              </MenuItem>
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
+          <CodeIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
           <Typography
             variant="h5"
             noWrap
@@ -104,15 +109,24 @@ function ResponsiveAppBar() {
             Examen
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                {page}
-              </Button>
-            ))}
+            <Button
+              component={Link}
+              to="/"
+              color="inherit"
+              sx={{ mr: 2 }}
+              variant="text"
+            >
+              Home
+            </Button>
+            <Button
+              component={Link}
+              to="/campus"
+              color="inherit"
+              sx={{ mr: 2 }}
+              variant="text"
+            >
+              Campus
+            </Button>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
