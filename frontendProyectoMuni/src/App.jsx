@@ -1,14 +1,7 @@
-import NavBar from "./components/navbar/NavBar";
+import Rutas from "./routes/routes";
 
 function App() {
-  return (
-    <>
-      <div>
-        <NavBar />
-        <h1>hola</h1>
-      </div>
-    </>
-  );
+  return <Rutas />;
 }
 
 export default App;

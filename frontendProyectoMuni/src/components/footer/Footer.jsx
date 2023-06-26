@@ -32,9 +32,9 @@ const Footer = () => {
               {" "}
               Personas
             </Link>
-            <Link to="/cursos " className="mr-4 hover:underline md:mr-6">
+            <Link to="/campus " className="mr-4 hover:underline md:mr-6">
               {" "}
-              Cursos
+              Campus
             </Link>
             <Link
               to="/personasCursos "
