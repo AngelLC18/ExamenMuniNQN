@@ -1,17 +1,26 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import DarkMode from "../dark-mode/DarkMode";
 
 const NavbarV2 = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-
   const handleMenuToggle = () => {
     setMenuOpen(!menuOpen);
   };
-
+  useEffect(() => {
+    const navbar = document.querySelector("nav");
+    document.addEventListener("scroll", () => {
+      if (window.scrollY > 0) {
+        navbar.classList.add("bg-white", "shadow", "dark:bg-gray-800");
+      } else {
+        navbar.classList.remove("bg-white", "shadow", "dark:bg-gray-800");
+      }
+    });
+  }, []);
   return (
-    <nav className="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 left-0">
+    <nav className="bg-transparent fixed w-full z-20 top-0 left-0 transition-all">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-3">
+        <i className="fa-solid fa-code dark:text-white"></i>
         <div className="flex md:order-2">
           <DarkMode />
           <button
@@ -41,11 +50,11 @@ const NavbarV2 = () => {
           }`}
           id="navbar-sticky"
         >
-          <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border w-full border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+          <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border w-full  bg-gray-50 md:bg-transparent rounded-md md:flex-row md:space-x-8 md:mt-0 md:border-0  dark:bg-gray-800 md:dark:bg-transparent dark:border-gray-700">
             <li>
               <Link
                 to="/"
-                className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                className="block py-2 pl-3 pr-4 text-gray-900 rounded-2xl md:bg-white md:bg-opacity-5 hover:bg-gray-100 md:hover:scale-105 md:hover:text-blue-700 md:p-2 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:bg-opacity-20 dark:hover:text-white md:dark:hover:scale-105  dark:border-gray-700"
               >
                 Examen
               </Link>
@@ -53,7 +62,7 @@ const NavbarV2 = () => {
             <li>
               <Link
                 to="/personas"
-                className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                className="block py-2 pl-3 pr-4 text-gray-900 rounded-2xl md:bg-white md:bg-opacity-5 hover:bg-gray-100 md:hover:scale-105 md:hover:text-blue-700 md:p-2 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:bg-opacity-20  dark:hover:text-white md:dark:hover:scale-105  dark:border-gray-700"
               >
                 Personas
               </Link>
@@ -61,7 +70,7 @@ const NavbarV2 = () => {
             <li>
               <Link
                 to="/campus"
-                className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                className="block py-2 pl-3 pr-4 text-gray-900 rounded-2xl md:bg-white md:bg-opacity-5 hover:bg-gray-100 md:hover:scale-105 md:hover:text-blue-700 md:p-2 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:bg-opacity-20 dark:hover:text-white md:dark:hover:scale-105  dark:border-gray-700"
               >
                 Campus
               </Link>
@@ -69,7 +78,7 @@ const NavbarV2 = () => {
             <li>
               <Link
                 to="/personasCursos"
-                className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                className="block py-2 pl-3 pr-4 text-gray-900 rounded-2xl md:bg-white md:bg-opacity-5 hover:bg-gray-100 md:hover:scale-105 md:hover:text-blue-700 md:p-2 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:bg-opacity-20  dark:hover:text-white md:dark:hover:scale-105  dark:border-gray-700"
               >
                 PersonasXCursos
               </Link>
