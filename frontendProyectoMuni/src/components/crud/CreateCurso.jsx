@@ -81,8 +81,8 @@ const CreateCursos = () => {
   return (
     <div className="w-full min-h-screen grid grid-rows-3 transition-all">
       <NavbarV2 />
-      <main className='row-span-2 w-full h-screen bg-[url("http://neuquentur.gob.ar/lab/wp-content/uploads/2014/10/Monumento-a-San-Mart%C3%ADn-Centro-de-ciudad-de-Neuqu%C3%A9n.jpg")] dark:bg-[url("https://i.ytimg.com/vi/vl9RyQvYuwI/maxresdefault.jpg")] dark:bg-left bg-no-repeat relative'>
-        <div className="dark:bg-gray-950 h-full absolute w-72 sm:w-[540px] right-2">
+      <main className='row-span-2 w-full min-h-screen bg-[url("http://neuquentur.gob.ar/lab/wp-content/uploads/2014/10/Monumento-a-San-Mart%C3%ADn-Centro-de-ciudad-de-Neuqu%C3%A9n.jpg")] dark:bg-[url("https://i.ytimg.com/vi/vl9RyQvYuwI/maxresdefault.jpg")] dark:bg-left bg-no-repeat relative'>
+        <div className=" h-full absolute w-72 sm:w-[540px] right-2">
           <h1 className="font-bold text-3xl flex items-baseline font-mono dark:text-white">
             Añadir Curso
           </h1>

@@ -7,7 +7,6 @@ const Main = () => {
       <NavbarV2 />
       <main className="row-span-2 flex flex-col justify-center min-h-screen items-center">
         <h1 className="text-6xl font-bold font-mono">Bienvenido</h1>
-        <h2 className="text-3xl font-bold font-mono">A la pagina de Neuquen</h2>
       </main>
       <Footer />
     </div>
