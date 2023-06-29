@@ -1,9 +1,9 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Apiurl } from "../../services/apirest";
-import NavbarV2 from "../navbar/Nav-barV2";
-import Footer from "../footer/Footer";
+import { Apiurl } from "../../../services/apirest";
+import NavbarV2 from "../../../components/navbar/Nav-barV2";
+import Footer from "../../../components/footer/Footer";
 import { Link } from "react-router-dom";
 const CreateCursos = () => {
   const [modalidades, setModalides] = useState([]);
@@ -79,15 +79,15 @@ const CreateCursos = () => {
   };
 
   return (
-    <div className="w-full min-h-screen grid grid-rows-3 transition-all">
+    <div className='w-full min-h-screen grid grid-rows-3 transition-all bg-[url("http://neuquentur.gob.ar/lab/wp-content/uploads/2014/10/Monumento-a-San-Mart%C3%ADn-Centro-de-ciudad-de-Neuqu%C3%A9n.jpg")] dark:bg-[url("https://pbs.twimg.com/media/Em_WmemWMAEiwYr?format=jpg&name=large")] dark:bg-cover  dark:bg-top bg-no-repeat'>
       <NavbarV2 />
-      <main className='row-span-2 w-full min-h-screen bg-[url("http://neuquentur.gob.ar/lab/wp-content/uploads/2014/10/Monumento-a-San-Mart%C3%ADn-Centro-de-ciudad-de-Neuqu%C3%A9n.jpg")] dark:bg-[url("https://i.ytimg.com/vi/vl9RyQvYuwI/maxresdefault.jpg")] dark:bg-left bg-no-repeat relative'>
-        <div className=" h-full absolute w-72 sm:w-[540px] right-2">
+      <main className="row-span-2 w-full min-h-screen relative">
+        <div className=" h-full w-full mt-20  flex flex-col items-center md:items-end md:-ml-8 ">
           <h1 className="font-bold text-3xl flex items-baseline font-mono dark:text-white">
             Añadir Curso
           </h1>
           <form
-            className=" absolute  bg-gray-100 dark:bg-slate-700 h-[92%] p-3 drop-shadow-lg rounded-xl  "
+            className=" absolute  bg-gray-100 dark:bg-slate-700 h-[80%] w-80 md:w-[550px] p-3 drop-shadow-lg rounded-xl  "
             onSubmit={form}
           >
             <div className="flex flex-row flex-wrap gap-4 p-2 justify-center">
@@ -96,13 +96,13 @@ const CreateCursos = () => {
                   <input
                     type="text"
                     placeholder="Nombre"
-                    className="h-11 w-56 bg-transparent border-black border-1 rounded-[4px] border-opacity-30 outline-none focus:border-blue-700 placeholder-gray-300 placeholder-opacity-0 transition duration-200"
+                    className="h-11 w-56 bg-transparent border-black border-[1px] rounded-[4px] border-opacity-30 outline-none focus:border-blue-700 placeholder-gray-300 placeholder-opacity-0 transition duration-200"
                     autoComplete="off"
                     onChange={handleText}
                     id="nombre"
                     value={curso.nombre}
                   />
-                  <span className="text-opacity-80 text-gray-600 bg-gray-100 absolute left-3 -top-[2px] px-1 transition duration-200 input-text">
+                  <span className="text-opacity-80 dark:text-white dark:bg-slate-700 text-gray-600 bg-gray-100 absolute left-3 -top-[2px] px-1 transition duration-200 input-text">
                     Nombre
                   </span>
                 </label>
@@ -112,12 +112,12 @@ const CreateCursos = () => {
                   <input
                     type="text"
                     placeholder="Descripcion"
-                    className="h-11 w-56  bg-transparent border-black border-1 rounded-[4px] border-opacity-30 outline-none focus:border-blue-700 placeholder-gray-300 placeholder-opacity-0 transition duration-200"
+                    className="h-11 w-56  bg-transparent border-black border-[1px] rounded-[4px] border-opacity-30 outline-none focus:border-blue-700 placeholder-gray-300 placeholder-opacity-0 transition duration-200"
                     id="descripcion"
                     onChange={handleText}
                     value={curso.descripcion}
                   />
-                  <span className="text-opacity-80 text-gray-600 bg-gray-100 absolute left-3 -top-[2px] px-1 transition duration-200 input-text">
+                  <span className="text-opacity-80 dark:bg-slate-700 dark:text-white  text-gray-600 bg-gray-100  absolute left-3 -top-[2px] px-1 transition duration-200 input-text">
                     Descripcion
                   </span>
                 </label>
@@ -127,20 +127,20 @@ const CreateCursos = () => {
                   <input
                     type="text"
                     placeholder="Legajo"
-                    className="h-11 w-56  bg-transparent border-black border-1 rounded-[4px] border-opacity-30 outline-none focus:border-blue-700 placeholder-gray-300 placeholder-opacity-0 transition duration-200"
+                    className="h-11 w-56  bg-transparent border-black border-[1px] rounded-[4px] border-opacity-30 outline-none focus:border-blue-700 placeholder-gray-300 placeholder-opacity-0 transition duration-200"
                     autoComplete="off"
                     id="legajo"
                     onChange={handleNumber}
                     value={curso.legajo}
                   />
-                  <span className="text-opacity-80 text-gray-600 bg-gray-100 absolute left-3 -top-[2px] px-1 transition duration-200 input-text">
+                  <span className="text-opacity-80 dark:text-white dark:bg-slate-700 text-gray-600 bg-gray-100 absolute left-3 -top-[2px] px-1 transition duration-200 input-text">
                     Legajo
                   </span>
                 </label>
               </div>
               <div className="relative w-56">
                 <select
-                  className="border-black border-1 rounded-[4px] border-opacity-30 bg-transparent w-56 h-11"
+                  className="border-black border-[1px] rounded-[4px] border-opacity-30 bg-transparent w-56 h-11 "
                   id="modalidad_id"
                   value={curso.modalidad_id}
                   onChange={(e) =>

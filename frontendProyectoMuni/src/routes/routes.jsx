@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Main from "../pages/Main.jsx";
 import Campus from "../pages/campus/CampusPage.jsx";
 import CreatePersona from "../pages/CreatePersona.jsx";
-import CreateCursos from "../components/crud/CreateCurso.jsx";
+import CreateCursos from "../pages/campus/components/CreateCurso.jsx";
 
 const Rutas = () => {
   return (
