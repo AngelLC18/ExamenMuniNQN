@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
+import Footer from "../../components/footer/Footer";
+import NavbarV2 from "../../components/navbar/Nav-barV2";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { Apiurl } from "../../services/apirest";
-import NavbarV2 from "../navbar/Nav-barV2.jsx";
-
-const ShowPersonas = () => {
+import BotonModalPersonas from "./components/BotonModalPersonas";
+const Personas = () => {
   const [personas, setPersonas] = useState([]);
 
   useEffect(() => {
@@ -22,17 +23,11 @@ const ShowPersonas = () => {
     alert("Persona eliminada");
   };
   return (
-    <div className="dark:text-gray-100 dark:bg-slate-900 w-screen min-h-screen">
+    <div className='dark:text-gray-100 bg-[url("https://descubres.com/wp-content/uploads/2020/07/IMG_20200710_142628-scaled.jpg")] bg-cover dark:bg-[url("https://guiamarex.com/store/contenido/neuquen/paseo-de-la-costa/paseo-de-la-costa-portada.jpg")] duration-100 w-full min-h-screen grid grid-rows-3'>
       <NavbarV2 />
-      <div className="grid grid-cols-3">
-        <div className="grid place-content-center mt-2 col-span-3">
-          <Link
-            to="/personas/create"
-            className="ml-1 bg-purple-500 text-white py-2 px-6 rounded-md hover:bg-purple-600"
-          >
-            Añadir Persona
-          </Link>
-        </div>
+      <main className="row-span-2 flex flex-col justify-center min-h-screen items-center">
+        <h1 className="text-6xl font-bold font-mono">Personas</h1>
+        <BotonModalPersonas />
         <div className="overflow-hidden rounded-lg border border-gray-200 shadow-md mt-5 mb-5 col-span-3">
           <table className="w-full border-collapse bg-white text-left text-sm text-gray-500">
             <thead className="bg-gray-50">
@@ -170,9 +165,10 @@ const ShowPersonas = () => {
             </tbody>
           </table>
         </div>
-      </div>
+      </main>
+      <Footer />
     </div>
   );
 };
 
-export default ShowPersonas;
+export default Personas;
