@@ -15,25 +15,22 @@ class PersonaSeeder extends Seeder
     {
         $data = [
             [
-                'nombre' => 'Juan',
-                'apellido' => 'Perez',
+                'razonSocial' => 'Juan Perez',
                 'dni' => '12345678',
                 'genero' => 'Masculino',
-                'edad' => '30'
+                'fechaNacimiento' => '1999-02-12'
             ],
             [
-                'nombre' => 'Maria',
-                'apellido' => 'Gomez',
+                'razonSocial' => 'Maria Gomez',
                 'dni' => '12345679',
                 'genero' => 'Femenino',
-                'edad' => '25'
+                'fechaNacimiento' => '1960-01-03'
             ],
             [
-                'nombre' => 'Pedro',
-                'apellido' => 'Gonzalez',
+                'razonSocial' => 'Pedro Gonzales',
                 'dni' => '12345680',
                 'genero' => 'Masculino',
-                'edad' => '35'
+                'fechaNacimiento' => '2000-08-14'
             ]
         ];
         DB :: table('personas')->insert($data);

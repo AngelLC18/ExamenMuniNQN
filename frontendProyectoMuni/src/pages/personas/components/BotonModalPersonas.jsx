@@ -6,7 +6,10 @@ const BotonModalPersonas = () => {
 
   return (
     <div>
-      <button onClick={openModal} className="rounded-3xl w-10 p-2 bg-slate-100">
+      <button
+        onClick={openModal}
+        className="rounded-3xl w-12 p-2 flex items-center justify-center dark:bg-slate-950 bg-slate-100"
+      >
         <i className="fa-solid fa-pen-to-square"></i>
       </button>
       <Modal isOpen={isOpenModal} closeModal={closeModal}>

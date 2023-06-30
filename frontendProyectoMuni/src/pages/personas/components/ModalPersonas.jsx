@@ -1,7 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
 import { Apiurl } from "../../../services/apirest";
-import DatePicker from "../../../components/date-picker/DatePicker";
 
 const ModalPersona = () => {
   const [nombre, setNombre] = useState("");
@@ -156,17 +155,7 @@ const ModalPersona = () => {
                 <option value="Femenino">Femenino</option>
               </select>
             </div>
-            <div className="relative w-56 ">
-              <DatePicker
-                locale="es"
-                dateFormat="dd/MM/yyyy"
-                selected={persona.fechaNacimiento}
-                onChange={(date) =>
-                  setPersona({ ...persona, fechaNacimiento: date })
-                }
-                placeholderText="Fecha de nacimiento"
-              />
-            </div>
+            <div className="relative w-56 "></div>
             <div className="flex items-center">
               <button
                 type="submit"
