@@ -48,7 +48,7 @@ const Personas = () => {
                 scope="col"
                 className="px-6 py-4 font-medium text-gray-900 dark:text-white"
               >
-                Edad
+                Fecha de Nacimiento
               </th>
             </thead>
             <tbody className="divide-y divide-gray-100 border-t border-gray-100">
@@ -60,7 +60,7 @@ const Personas = () => {
                   <td className="px-6 py-4">{persona.razonSocial}</td>
                   <td className="px-6 py-4">{persona.dni}</td>
                   <td className="px-6 py-4">{persona.genero}</td>
-                  <td className="px-6 py-4">
+                  <td className="px-6 py-4 text-center">
                     {persona.fechaNacimiento.split("T")[0]}
                   </td>
                 </tr>
