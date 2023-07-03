@@ -26,30 +26,32 @@ const Personas = () => {
         <div className="overflow-hidden rounded-lg border border-gray-200 shadow-md mt-5 mb-5  col-span-3">
           <table className="w-full border-collapse bg-white dark:bg-slate-900 text-left text-sm text-gray-500">
             <thead className="bg-gray-50 dark:bg-slate-700 ">
-              <th
-                scope="col"
-                className="px-6 py-4 font-medium text-gray-900 dark:text-white"
-              >
-                Razon Social
-              </th>
-              <th
-                scope="col"
-                className="px-6 py-4 font-medium text-gray-900 dark:text-white"
-              >
-                DNI
-              </th>
-              <th
-                scope="col"
-                className="px-6 py-4 font-medium text-gray-900 dark:text-white"
-              >
-                Genero
-              </th>
-              <th
-                scope="col"
-                className="px-6 py-4 font-medium text-gray-900 dark:text-white"
-              >
-                Fecha de Nacimiento
-              </th>
+              <tr>
+                <th
+                  scope="col"
+                  className="px-6 py-4 font-medium text-gray-900 dark:text-white"
+                >
+                  Razon Social
+                </th>
+                <th
+                  scope="col"
+                  className="px-6 py-4 font-medium text-gray-900 dark:text-white"
+                >
+                  DNI
+                </th>
+                <th
+                  scope="col"
+                  className="px-6 py-4 font-medium text-gray-900 dark:text-white"
+                >
+                  Genero
+                </th>
+                <th
+                  scope="col"
+                  className="px-6 py-4 font-medium text-gray-900 dark:text-white"
+                >
+                  Fecha de Nacimiento
+                </th>
+              </tr>
             </thead>
             <tbody className="divide-y divide-gray-100 border-t border-gray-100">
               {personas.map((persona) => (
@@ -73,18 +75,20 @@ const Personas = () => {
           <div className="overflow-hidden rounded-lg border border-gray-200 dark:bg-slate-900 shadow-md w-52 ">
             <table className="w-full border-collapse bg-white dark:bg-slate-900 text-left text-sm dark:text-white text-gray-500 h-full">
               <thead className="bg-gray-50 dark:bg-slate-700 ">
-                <th
-                  scope="col"
-                  className="px-6 py-4 font-medium text-gray-900 dark:text-white"
-                >
-                  Genero
-                </th>
-                <th
-                  scope="col"
-                  className="px-6 py-4 font-medium text-gray-900 dark:text-white"
-                >
-                  Cantidad
-                </th>
+                <tr>
+                  <th
+                    scope="col"
+                    className="px-6 py-4 font-medium text-gray-900 dark:text-white"
+                  >
+                    Genero
+                  </th>
+                  <th
+                    scope="col"
+                    className="px-6 py-4 font-medium text-gray-900 dark:text-white"
+                  >
+                    Cantidad
+                  </th>
+                </tr>
               </thead>
               <tbody className="divide-y divide-gray-100 border-t border-gray-100">
                 <tr className="hover:bg-gray-50 dark:hover:bg-slate-800">
@@ -114,18 +118,20 @@ const Personas = () => {
           <div className="overflow-hidden rounded-lg border border-gray-200 dark:bg-slate-900 shadow-md w-52 ">
             <table className="w-full border-collapse bg-white dark:bg-slate-900 text-left text-sm dark:text-white text-gray-500">
               <thead className="bg-gray-50 dark:bg-slate-700">
-                <th
-                  scope="col"
-                  className="px-6 py-4 font-medium text-gray-900 dark:text-white"
-                >
-                  Edad
-                </th>
-                <th
-                  scope="col"
-                  className="px-6 py-4 font-medium text-gray-900 dark:text-white"
-                >
-                  Cantidad
-                </th>
+                <tr>
+                  <th
+                    scope="col"
+                    className="px-6 py-4 font-medium text-gray-900 dark:text-white"
+                  >
+                    Edad
+                  </th>
+                  <th
+                    scope="col"
+                    className="px-6 py-4 font-medium text-gray-900 dark:text-white"
+                  >
+                    Cantidad
+                  </th>
+                </tr>
               </thead>
               <tbody className="divide-y divide-gray-100 border-t border-gray-100">
                 <tr className="hover:bg-gray-50 dark:hover:bg-slate-800">

@@ -1,10 +1,11 @@
 import { useState } from "react";
 import axios from "axios";
 import { Apiurl } from "../../../services/apirest";
+import DatePicker from "../../../components/date-picker/DatePicker";
 
 const ModalPersona = () => {
-  const [nombre, setNombre] = useState("");
-  const [apellido, setApellido] = useState("");
+  const [nombre, setNombre] = useState([]);
+  const [apellido, setApellido] = useState([]);
   const [persona, setPersona] = useState({
     razonSocial: "",
     dni: "",
@@ -14,6 +15,7 @@ const ModalPersona = () => {
   const form = (e) => {
     e.preventDefault();
   };
+
   //Función para permitir solo letras y cargarlas al arreglo
   const handleText = (e) => {
     const value = e.target.value;
@@ -37,33 +39,20 @@ const ModalPersona = () => {
       });
     }
   };
-  const resetForm = () => {
-    setNombre("");
-    setApellido("");
-    setPersona({
-      razonSocial: "",
-      dni: "",
-      genero: "",
-      fechaNacimiento: "",
-    });
-  };
 
   //Enviar datos del formulario a la base de datos
   const handleButton = async () => {
-    //Campos obligatorios
-    /*if (
-      nombre === '' ||
-      apellido === '' ||
-      persona.dni === '' ||
-      persona.genero === '' ||
-      persona.fechaNacimiento === ''
+    if (
+      nombre === "" ||
+      apellido === "" ||
+      persona.dni === "" ||
+      persona.genero === "" ||
+      persona.fechaNacimiento === ""
     ) {
-      alert('Todos los campos son obligatorios');
+      alert("Todos los campos son obligatorios");
       return;
-    }*/
+    }
     //Creo una variable que concatena las variables nombre y apellido
-    //Inserto la variable union en mi parametro "razonSocial" del arreglo persona
-
     setPersona({
       ...persona,
       razonSocial: `${nombre} ${apellido}`,
@@ -74,13 +63,13 @@ const ModalPersona = () => {
         .then((response) => {
           console.log(response.data);
           alert("Persona registrada correctamente");
-          resetForm();
         })
         .catch((error) => {
           console.log(error.message);
           alert("Error al registrar persona");
         });
     }
+    //Cerrar modal
   };
   return (
     <>
@@ -155,7 +144,13 @@ const ModalPersona = () => {
                 <option value="Femenino">Femenino</option>
               </select>
             </div>
-            <div className="relative w-56 "></div>
+            <div className="relative w-56 ">
+              <DatePicker
+                onChange={(e) =>
+                  setPersona({ ...persona, fechaNacimiento: e.target.value })
+                }
+              />
+            </div>
             <div className="flex items-center">
               <button
                 type="submit"

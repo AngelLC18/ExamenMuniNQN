@@ -8,7 +8,7 @@ const BotonModalPersonas = () => {
     <div>
       <button
         onClick={openModal}
-        className="rounded-3xl w-12 p-2 flex items-center justify-center dark:bg-slate-950 bg-slate-100"
+        className="rounded-3xl w-12 p-2 flex items-center text-center justify-center dark:bg-slate-950 bg-slate-100"
       >
         <i className="fa-solid fa-pen-to-square"></i>
       </button>
