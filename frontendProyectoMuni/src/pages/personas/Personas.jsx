@@ -4,6 +4,7 @@ import NavbarV2 from "../../components/navbar/Nav-barV2";
 import axios from "axios";
 import { Apiurl } from "../../services/apirest";
 import BotonModalPersonas from "./components/BotonModalPersonas";
+import Muni from "./components/ListaMuni";
 const Personas = () => {
   const [personas, setPersonas] = useState([]);
 
@@ -20,7 +21,8 @@ const Personas = () => {
   return (
     <div className='dark:text-gray-100 bg-[url("https://descubres.com/wp-content/uploads/2020/07/IMG_20200710_142628-scaled.jpg")] bg-cover dark:bg-[url("https://guiamarex.com/store/contenido/neuquen/paseo-de-la-costa/paseo-de-la-costa-portada.jpg")] duration-100 w-full min-h-screen grid grid-rows-3'>
       <NavbarV2 />
-      <main className="row-span-2 flex flex-col justify-center min-h-screen items-center mb-2 gap-2">
+      <main className="row-span-2 flex flex-col justify-center min-h-screen items-center mb-2 gap-2 relative">
+        <Muni />
         <h1 className="text-6xl font-bold font-mono mt-16">Personas</h1>
         <BotonModalPersonas />
         <div className="overflow-hidden rounded-lg border border-gray-200 shadow-md mt-5 mb-5  col-span-3">
