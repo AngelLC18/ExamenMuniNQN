@@ -63,6 +63,8 @@ const ModalPersona = () => {
         .then((response) => {
           console.log(response.data);
           alert("Persona registrada correctamente");
+          setApellido("");
+          setNombre("");
         })
         .catch((error) => {
           console.log(error.message);

@@ -106,10 +106,12 @@ const ShowPersonasCursos = () => {
     <div className='dark:text-gray-100 bg-[url("https://descubres.com/wp-content/uploads/2020/07/IMG_20200710_142628-scaled.jpg")] bg-cover dark:bg-[url("https://guiamarex.com/store/contenido/neuquen/paseo-de-la-costa/paseo-de-la-costa-portada.jpg")] duration-100 w-full min-h-screen grid grid-rows-3'>
       <NavbarV2 />
       <main className="row-span-2 flex flex-col justify-center min-h-screen items-center gap-2 relative">
-        <div className="w-80 bg-white rounded-md flex p-2 justify-center items-center h-20 absolute top-20">
+        <div className="w-80 bg-white dark:bg-slate-900 dark:border-sky-400 border-[2px] rounded-md flex p-2 justify-center items-center h-20 mt-20 mb-2">
           {Object.keys(cursoSeleccionado).length > 0 ? (
-            <div className="text-[9px] text-black font-bold">
-              <h2>Información del curso seleccionado:</h2>
+            <div className="text-[9px] text-black dark:text-white font-bold">
+              <h2 className="text-center">
+                Información del curso seleccionado
+              </h2>
               <p>Nombre: {cursoSeleccionado.nombre}</p>
               <p>Descripción: {cursoSeleccionado.descripcion}</p>
               <p>
@@ -120,7 +122,7 @@ const ShowPersonasCursos = () => {
             <p>Cargando curso seleccionado...</p>
           )}
         </div>
-        <div className="mt-20 gap-2">
+        <div className="gap-2">
           <form
             className="grid max-w-3xl gap-2 py-10 px-8 sm:grid-cols-2 bg-white dark:bg-slate-900 rounded-md border-t-4 border-sky-400"
             onSubmit={handleSubmit}
@@ -166,7 +168,7 @@ const ShowPersonasCursos = () => {
             </div>
           </form>
         </div>
-        <div className=" w-[520px] max-h-[420px] rounded-lg border border-gray-200 shadow-md overflow-y-auto">
+        <div className=" w-[520px] max-h-[420px] rounded-lg  border-gray-200 dark:border-sky-400 border-[2px] shadow-md overflow-y-auto">
           <table className="w-full  border-collapse bg-white dark:bg-slate-900  text-left text-sm text-gray-500 overflow-y-auto duration-200 transition-all">
             <thead className="bg-gray-50 dark:bg-slate-950">
               <tr>
