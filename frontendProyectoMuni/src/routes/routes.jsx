@@ -15,7 +15,7 @@ const Rutas = () => {
           <Route path="/campus/create" element={<CreateCursos />} />
           <Route path="*" element={<h1>Not Found 404</h1>} />
           <Route path="/personas" element={<Personas />} />
-          <Route path="/personasCursos" element={<ShowPersonasCursos />} />
+          <Route path="/personasCursos/:id" element={<ShowPersonasCursos />} />
         </Routes>
       </BrowserRouter>
     </div>

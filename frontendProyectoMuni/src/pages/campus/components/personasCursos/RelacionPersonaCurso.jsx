@@ -5,6 +5,7 @@ import { Apiurl } from "../../../../services/apirest";
 import { Link } from "react-router-dom";
 import NavbarV2 from "../../../../components/navbar/Nav-barV2";
 import Footer from "../../../../components/footer/Footer";
+import { useParams } from "react-router-dom";
 
 const ShowPersonasCursos = () => {
   const [personas, setPersonas] = useState([]);
@@ -15,6 +16,8 @@ const ShowPersonasCursos = () => {
     persona_id: "",
     curso_id: "",
   });
+  const [cursoSeleccionado, setCursoSeleccionado] = useState({});
+  const { id } = useParams();
 
   useEffect(() => {
     getAllPersonas();
@@ -22,6 +25,11 @@ const ShowPersonasCursos = () => {
     getAllPersonasCursos();
     getAllModalidades();
   }, []);
+  useEffect(() => {
+    // Obtener detalles del curso seleccionado utilizando el ID
+    const selectedCurso = cursos.find((curso) => curso.id === parseInt(id));
+    setCursoSeleccionado(selectedCurso || {});
+  }, [id, cursos]);
 
   const getAllPersonas = async () => {
     const response = await axios.get(Apiurl + "personas");
@@ -79,36 +87,6 @@ const ShowPersonasCursos = () => {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(personaCurso);
-
-    // Si la persona esta inscripta en un curso con la misma modalidad, no se puede inscribir
-    if (personaCurso.persona_id === "" || personaCurso.curso_id === "") {
-      alert("Debe seleccionar una persona y un curso");
-      return;
-    }
-
-    const cursoSeleccionado = cursos.find(
-      (curso) => curso.id === personaCurso.curso_id
-    );
-    const modalidadCursoSeleccionado = modalidades.find(
-      (modalidad) => modalidad.id === cursoSeleccionado.modalidad_id
-    );
-
-    const personaInscriptaEnCursoConMismaModalidad = personasCursos.some(
-      (pc) => {
-        const curso = cursos.find((c) => c.id === pc.curso_id);
-        const modalidad = modalidades.find((m) => m.id === curso.modalidad_id);
-        return (
-          pc.persona_id === personaCurso.persona_id &&
-          modalidad.id === modalidadCursoSeleccionado.id
-        );
-      }
-    );
-
-    if (personaInscriptaEnCursoConMismaModalidad) {
-      alert("La persona ya está inscripta en un curso con la misma modalidad");
-      return;
-    }
 
     // Si la persona no esta inscripta en un curso con la misma modalidad, se puede inscribir
     await axios
@@ -127,7 +105,21 @@ const ShowPersonasCursos = () => {
   return (
     <div className='dark:text-gray-100 bg-[url("https://descubres.com/wp-content/uploads/2020/07/IMG_20200710_142628-scaled.jpg")] bg-cover dark:bg-[url("https://guiamarex.com/store/contenido/neuquen/paseo-de-la-costa/paseo-de-la-costa-portada.jpg")] duration-100 w-full min-h-screen grid grid-rows-3'>
       <NavbarV2 />
-      <main className="row-span-2 flex flex-col justify-center min-h-screen items-center gap-2">
+      <main className="row-span-2 flex flex-col justify-center min-h-screen items-center gap-2 relative">
+        <div className="w-80 bg-white rounded-md flex p-2 justify-center items-center h-20 absolute top-20">
+          {Object.keys(cursoSeleccionado).length > 0 ? (
+            <div className="text-[9px] text-black font-bold">
+              <h2>Información del curso seleccionado:</h2>
+              <p>Nombre: {cursoSeleccionado.nombre}</p>
+              <p>Descripción: {cursoSeleccionado.descripcion}</p>
+              <p>
+                Modalidad: {getNombreModalidad(cursoSeleccionado.modalidad_id)}
+              </p>
+            </div>
+          ) : (
+            <p>Cargando curso seleccionado...</p>
+          )}
+        </div>
         <div className="mt-20 gap-2">
           <form
             className="grid max-w-3xl gap-2 py-10 px-8 sm:grid-cols-2 bg-white dark:bg-slate-900 rounded-md border-t-4 border-sky-400"
@@ -151,9 +143,10 @@ const ShowPersonasCursos = () => {
             <div className="grid">
               <label className="dark:text-white">Curso</label>
               <select
-                className="border-black border-[1px] pl-2 rounded-[4px] outline-none border-opacity-30 bg-transparent  w-56 h-11 dark:bg-slate-700 dark:text-white text-gray-600 transition duration-200"
+                className="border-black border-[1px] pl-2 rounded-[4px] outline-none border-opacity-30 bg-transparent w-56 h-11 dark:bg-slate-700 dark:text-white text-gray-600 transition duration-200"
                 name="curso_id"
                 onChange={handleChange}
+                value={cursoSeleccionado.curso_id}
               >
                 <option value="">Seleccione un curso</option>
                 {cursos.map((curso) => (

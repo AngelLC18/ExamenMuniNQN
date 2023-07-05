@@ -1,12 +1,11 @@
 import PropTypes from "prop-types";
-import { useNavigate } from "react-router-dom";
 
 const Card = (props) => {
-  const { h1, p, src, alt } = props;
-  const navigate = useNavigate();
+  const { h1, p, src, alt, curso, onClick } = props;
+
 
   const handleClick = () => {
-    navigate("/personasCursos");
+    onClick(curso);
   };
 
   return (
@@ -34,6 +33,8 @@ Card.propTypes = {
   alt: PropTypes.string,
   h1: PropTypes.string.isRequired,
   p: PropTypes.string.isRequired,
+  curso: PropTypes.object.isRequired,
+  onClick: PropTypes.func.isRequired
 };
 
 export default Card;

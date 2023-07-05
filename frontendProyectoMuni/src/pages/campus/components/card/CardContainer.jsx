@@ -2,10 +2,10 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Card from "./Card";
 import { Apiurl } from "../../../../services/apirest";
+import { useNavigate } from "react-router-dom";
 
 const CardsContainer = () => {
   const [cursos, setCursos] = useState([]);
-
   useEffect(() => {
     getAllCursos();
   }, []);
@@ -14,9 +14,14 @@ const CardsContainer = () => {
     setCursos(response.data);
     console.log(response.data);
   };
-
+  const navigate = useNavigate();
   const cursosIndividuales = cursos.filter((curso) => curso.modalidad_id === 2);
   const cursosGrupales = cursos.filter((curso) => curso.modalidad_id === 1);
+
+  const handleCardClick = (curso) => {
+
+    navigate(`/personasCursos/${curso.id}`);
+  };
 
   return (
     <div className="col-span-2 grid grid-rows-2 w-full gap-3 p-2 place-content-center">
@@ -26,7 +31,7 @@ const CardsContainer = () => {
         </h2>
         <div className="flex flex-row gap-4 overflow-x-auto  w-[330px] md:w-[1021px]">
           {cursosIndividuales.map((curso) => (
-            <Card key={curso.id} h1={curso.nombre} p={curso.descripcion} />
+            <Card key={curso.id} h1={curso.nombre} p={curso.descripcion} curso={curso} onClick={handleCardClick} />
           ))}
         </div>
       </div>
@@ -34,7 +39,7 @@ const CardsContainer = () => {
         <h2 className="dark:text-white absolute top-0 ">Grupos grupales</h2>
         <div className="flex flex-row gap-4 overflow-x-auto w-[330px] md:w-[1021px] ">
           {cursosGrupales.map((curso) => (
-            <Card key={curso.id} h1={curso.nombre} p={curso.descripcion} />
+            <Card key={curso.id} h1={curso.nombre} p={curso.descripcion} curso={curso} onClick={handleCardClick} />
           ))}
         </div>
       </div>
