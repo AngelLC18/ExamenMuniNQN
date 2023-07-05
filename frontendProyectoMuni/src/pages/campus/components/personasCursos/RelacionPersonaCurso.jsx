@@ -103,7 +103,7 @@ const ShowPersonasCursos = () => {
   };
 
   return (
-    <div className='dark:text-gray-100 bg-[url("https://descubres.com/wp-content/uploads/2020/07/IMG_20200710_142628-scaled.jpg")] bg-cover dark:bg-[url("https://guiamarex.com/store/contenido/neuquen/paseo-de-la-costa/paseo-de-la-costa-portada.jpg")] duration-100 w-full min-h-screen grid grid-rows-3'>
+    <div className='dark:text-gray-100 bg-[url("https://descubres.com/wp-content/uploads/2020/07/IMG_20200710_142628-scaled.jpg")] bg-cover dark:bg-[url("https://guiamarex.com/store/contenido/neuquen/paseo-de-la-costa/paseo-de-la-costa-portada.jpg")] dark:bg-[73%] duration-100 min-h-screen grid grid-rows-3'>
       <NavbarV2 />
       <main className="row-span-2 flex flex-col justify-center min-h-screen items-center gap-2 relative">
         <div className="w-80 bg-white dark:bg-slate-900 dark:border-sky-400 border-[2px] rounded-md flex p-2 justify-center items-center h-20 mt-20 mb-2">

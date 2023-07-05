@@ -11,16 +11,18 @@ const NavbarV2 = () => {
     const navbar = document.querySelector("nav");
     document.addEventListener("scroll", () => {
       if (window.scrollY > 0) {
-        navbar.classList.add("bg-white", "shadow", "dark:bg-gray-800");
+        navbar.classList.add("bg-white", "shadow-md", "dark:bg-gray-800");
       } else {
-        navbar.classList.remove("bg-white", "shadow", "dark:bg-gray-800");
+        navbar.classList.remove("bg-white", "shadow-md", "dark:bg-gray-800");
       }
     });
   }, []);
   return (
     <nav className="bg-transparent fixed w-full z-20 top-0 left-0 transition-all">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-3">
-        <i className="fa-solid fa-code dark:text-white"></i>
+        <a href="http://epet20.com.ar/">
+          <i className="fa-solid fa-code dark:text-white"></i>
+        </a>
         <div className="flex md:order-2">
           <DarkMode />
           <button

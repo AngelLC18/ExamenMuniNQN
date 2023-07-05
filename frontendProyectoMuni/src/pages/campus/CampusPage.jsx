@@ -10,7 +10,7 @@ const Campus = () => {
       <Lista_Cursos />
       <ListaPersonasCursos />
       <NavbarV2 />
-      <main className="row-span-2 min-h-screen grid grid-cols-2 dark:bg-slate-900 bg-cyan-200">
+      <main className='row-span-2 min-h-screen grid grid-cols-2 bg-[url("https://descubres.com/wp-content/uploads/2020/07/IMG_20200710_142628-scaled.jpg")] bg-cover dark:bg-[url("https://guiamarex.com/store/contenido/neuquen/paseo-de-la-costa/paseo-de-la-costa-portada.jpg")] dark:bg-[73%] duration-100'>
         <div className="col-span-1 flex w-full justify-center items-center mt-14 ml-[50%]">
           <Modals />
         </div>

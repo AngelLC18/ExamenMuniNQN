@@ -23,8 +23,8 @@ const CardsContainer = () => {
   };
 
   return (
-    <div className="col-span-2 grid grid-rows-2 w-full gap-3 p-2 place-content-center">
-      <div className="flex flex-col row-span-1 bg-sky-200 dark:bg-sky-950 pl-5  pt-7 pr-5 pb-4 md:pl-4 md:pt-7 md:pr-4 m-0 rounded-lg  w-[350px] items-center md:w-auto relative ">
+    <div className="col-span-2 grid grid-rows-2 w-full gap-3 p-2 place-content-center ">
+      <div className="flex flex-col row-span-1 bg-sky-200 dark:bg-sky-950 pl-5 shadow-md bg-opacity-50 dark:bg-opacity-50  pt-7 pr-5 pb-4 md:pl-4 md:pt-7 md:pr-4 m-0 rounded-lg  w-[350px] items-center md:w-auto relative ">
         <h2 className=" dark:text-white absolute top-0 ">
           Grupos Individuales
         </h2>
@@ -40,7 +40,7 @@ const CardsContainer = () => {
           ))}
         </div>
       </div>
-      <div className="flex flex-col row-span-1 bg-sky-200 dark:bg-sky-950 pl-5  pt-7 pr-5 pb-4 md:pl-4 md:pt-7 md:pr-4 m-0 rounded-lg  w-[350px] items-center md:w-auto relative ">
+      <div className="flex flex-col row-span-1 bg-sky-200 dark:bg-sky-950 pl-5 shadow-md pt-7 pr-5 pb-4 bg-opacity-50 dark:bg-opacity-50 md:pl-4 md:pt-7 md:pr-4 m-0 rounded-lg  w-[350px] items-center md:w-auto relative ">
         <h2 className="dark:text-white absolute top-0 ">Grupos grupales</h2>
         <div className="flex flex-row gap-4 overflow-x-auto w-[330px] md:w-[1021px] ">
           {cursosGrupales.map((curso) => (
