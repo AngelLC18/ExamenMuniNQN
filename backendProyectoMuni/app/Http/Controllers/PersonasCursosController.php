@@ -8,6 +8,7 @@ use App\Http\Requests\UpdatePersonasCursosRequest;
 use App\Models\PersonasCursos;
 use App\Models\Persona;
 use App\Models\Curso;
+
 class PersonasCursosController extends Controller
 {
     public function index()
@@ -18,6 +19,23 @@ class PersonasCursosController extends Controller
 
     public function store(StorePersonasCursosRequest $request)
     {
+        //Variables para el id de personas y cursos
+        $personaId = $request->input('persona_id');
+        $cursoId = $request->input('curso_id');
+
+        // Creo una variable para verificar si la persona esta inscripta a un curso con la misma modalidad
+        $existeRelacion = PersonasCursos::where('persona_id', $personaId)
+            ->whereHas('curso', function ($query) use ($cursoId) {
+                $curso = Curso::find($cursoId);
+                $query->where('modalidad_id', $curso->modalidad_id);
+            })
+            ->exists();
+
+        if ($existeRelacion) {
+            return response()->json(['error' => 'La persona ya está inscrita en un curso con la misma modalidad'], 400);
+        }
+
+        // Crear la nueva relación
         $personasCursos = new PersonasCursos();
         $personasCursos->fill($request->all());
         $personasCursos->save();
@@ -26,6 +44,7 @@ class PersonasCursosController extends Controller
 
         return response()->json(['success' => 'Relación creada correctamente', 'persona' => $persona]);
     }
+
 
     public function show(PersonasCursos $personasCursos)
     {
