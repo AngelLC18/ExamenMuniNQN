@@ -14,8 +14,8 @@ const Personas = () => {
 
   const getAllPersonas = async () => {
     const response = await axios.get(Apiurl + "personas");
-    setPersonas(response.data);
-    console.log(response.data);
+    setPersonas(response.data.value);
+    console.log(response.data.value);
   };
 
   return (
@@ -25,7 +25,7 @@ const Personas = () => {
         <Muni />
         <h1 className="text-6xl font-bold font-mono mt-16">Personas</h1>
         <BotonModalPersonas />
-        <div className="overflow-hidden rounded-lg border border-gray-200 shadow-md mt-5 mb-5  col-span-3">
+        <div className=" rounded-lg border border-gray-200 shadow-md h-[400px] mt-5 mb-5  col-span-3 overflow-y-auto">
           <table className="w-full border-collapse bg-white dark:bg-slate-900 text-left text-sm text-gray-500">
             <thead className="bg-gray-50 dark:bg-slate-700 ">
               <tr>
@@ -98,7 +98,7 @@ const Personas = () => {
                   <td className="px-6 py-4">
                     {
                       personas.filter(
-                        (persona) => persona.genero === "Masculino"
+                        (persona) => persona.genero === "MASCULINO"
                       ).length
                     }
                   </td>
@@ -108,7 +108,7 @@ const Personas = () => {
                   <td className="px-6 py-4">
                     {
                       personas.filter(
-                        (persona) => persona.genero === "Femenino"
+                        (persona) => persona.genero === "FEMENINO"
                       ).length
                     }
                   </td>

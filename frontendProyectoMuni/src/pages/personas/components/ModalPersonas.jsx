@@ -142,8 +142,8 @@ const ModalPersona = () => {
                 <option disabled value="default">
                   Seleccione un genero
                 </option>
-                <option value="Masculino">Masculino</option>
-                <option value="Femenino">Femenino</option>
+                <option value="MASCULINO">Masculino</option>
+                <option value="FEMENINO">Femenino</option>
               </select>
             </div>
             <div className="relative w-56 ">

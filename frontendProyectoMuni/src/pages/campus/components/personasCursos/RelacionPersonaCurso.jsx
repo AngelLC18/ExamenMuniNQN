@@ -33,8 +33,8 @@ const ShowPersonasCursos = () => {
 
   const getAllPersonas = async () => {
     const response = await axios.get(Apiurl + "personas");
-    setPersonas(response.data);
-    console.log(response.data);
+    setPersonas(response.data.value);
+    console.log(response.data.value);
   };
 
   const getNombrePersona = (id) => {
